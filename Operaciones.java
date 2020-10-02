@@ -6,25 +6,24 @@ public class Operaciones {
 
     private String participante;
     private int calif[] = new int[5];
-    private String estado;
-    private float promedio;
+    private char estado;
+    private double promedio;
 
-    public float calcular_promedio(int[] calif) {
+
+    public void calcular_promedio() {
         Scanner scaner = new Scanner(System.in);
-        this.calif = calif;
 
         int suma = 0;
-        float promedio;
 
-        System.out.println("Primera Calificacion:\n ");
+        System.out.println("Primera Calificacion: ");
         calif[0] = scaner.nextInt();
-        System.out.println("Seguda Calificacion:\n ");
+        System.out.println("Seguda Calificacion: ");
         calif[1] = scaner.nextInt();
-        System.out.println("Tercera Calificacion:\n ");
+        System.out.println("Tercera Calificacion: ");
         calif[2] = scaner.nextInt();
-        System.out.println("Cuarta Calificacion:\n ");
+        System.out.println("Cuarta Calificacion: ");
         calif[3] = scaner.nextInt();
-        System.out.println("Quinta Calificacion:\n ");
+        System.out.println("Quinta Calificacion: ");
         calif[4] = scaner.nextInt();
 
         for (int i = 0; i < calif.length; i++) {
@@ -32,40 +31,32 @@ public class Operaciones {
         }
         promedio = (suma / calif.length);
 
-        return promedio;
     }
 
-    public <promedio> void evaluar_estado(promedio) {
 
-        if (promedio > 50 &&<=60){
-            estado = "E";
-        }else {
-            if (promedio > 60 && <=70) {
-                estado = "D";
-                  }
-            }else {
-                if (promedio > 70 && <=80) {
-                     estado = "C";
-                        }
-                 }else {
-                     if (promedio > 80 && <=90) {
-                         estado = "B";
-                             }
-                        }else {
-                              if (promedio > 90 && <=100) {
-                                  estado = "A";
-                                      }
-                                  }else {
-                                     estado = "F";
-                                          }
-        return;
+    public void setEstado() {
+
+
+        if (promedio > 50 && promedio <= 60){
+           this.estado = 'E';
+        } else if (promedio > 60 && promedio <= 70) {
+            this.estado = 'D';
+        } else if (promedio > 70 && promedio <= 80) {
+            this.estado = 'C';
+        } else if (promedio > 80 && promedio <= 90) {
+            this.estado = 'B';
+        } else if (promedio > 90 && promedio <= 100) {
+            this.estado = 'A';
+        } else {
+            this.estado = 'F';
+        }
     }
 
 
     public void mostrar_mensajes(){
-        Scanner nom=  new Scanner(System.in);
+        Scanner nom = new Scanner(System.in);
         System.out.println("Ingresar Nombre del Participante:");
-        participante =nom.nextLine();
+        participante = nom.nextLine();
 
         System.out.println("Calificacion 1:"+calif[0]);
 
@@ -76,15 +67,15 @@ public class Operaciones {
         System.out.println("Calificacion 4:"+calif[3]);
 
         System.out.println("Calificacion 5:"+calif[4]);
+        
+        this.setEstado();
 
-        System.out.println("Promedio: " +promedio);
+        System.out.println("Promedio: " + promedio);
 
-        System.out.println("Calificacion: " +evaluar_estado());
-
+        System.out.println("Calificacion: " + estado);
     }
 
-
-    }
+}
 
 
 
